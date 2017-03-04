@@ -1,0 +1,14 @@
+(SELECT city,min(length(city)) FROM station WHERE  length(city) = (select min(length(city)) from station) 
+GROUP by city 
+order by city 
+limit 1)
+
+union
+
+(SELECT city,MAX(length(city)) FROM station WHERE  length(city) = (select MAX(length(city)) from station where 1) 
+GROUP by city 
+order by city  
+limit 1)
+
+
+
